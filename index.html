@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#667eea">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>ModStore</title>
+    <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/fasfqeawrdfq3wer3w/stark-mklsdklamdklm@main/assets/icono.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fasfqeawrdfq3wer3w/stark-mklsdklamdklm@main/styles.css">
+    <script>(function(){var a={blue:{p:'#3b82f6',s:'#1d4ed8',ac:'#60a5fa',g:'rgba(59,130,246,0.4)',rgb:'59,130,246'},red:{p:'#ef4444',s:'#b91c1c',ac:'#f87171',g:'rgba(239,68,68,0.4)',rgb:'239,68,68'},green:{p:'#10b981',s:'#047857',ac:'#34d399',g:'rgba(16,185,129,0.4)',rgb:'16,185,129'}};var b={black:{bp:'#000000',bs:'#0a0a0a',bt:'#1a1a1a',br:'#1f2937'},gray:{bp:'#111111',bs:'#1c1c1e',bt:'#2c2c2e',br:'#3a3a3c'},dark:{bp:'#0d1117',bs:'#161b22',bt:'#21262d',br:'#30363d'}};var t=a[localStorage.getItem('appTheme')]||a.blue;var bg=b[localStorage.getItem('appBgTheme')]||b.black;var r=document.documentElement;r.style.setProperty('--primary',t.p);r.style.setProperty('--secondary',t.s);r.style.setProperty('--accent',t.ac);r.style.setProperty('--glow',t.g);r.style.setProperty('--primary-rgb',t.rgb);r.style.setProperty('--bg-primary',bg.bp);r.style.setProperty('--bg-secondary',bg.bs);r.style.setProperty('--bg-tertiary',bg.bt);r.style.setProperty('--border',bg.br);})();</script>
+</head>
+<body>
+    <script>
+        const appName    = 'StarkX';
+        const appLogoUrl = 'https://cdn.jsdelivr.net/gh/fasfqeawrdfq3wer3w/stark-mklsdklamdklm@main/assets/icono.png';
+        const cards = [
+            { name: 'Subway Surfers: Todo desbloqueado', icon: '', iconUrl: 'https://espacioapk.com/wp-content/uploads/2026/02/Subway-Surfers-dinero-ilimitado-apk.webp', category: 'Juegos', rating: 4.5, type: 'mod', url: 'go:sub' }
+        ];
+        cards.forEach(c => c.isMod = ['mod','mod-sin-apk','emulado'].includes(c.type));
+        const typeLabel = {
+            'app':        { label: 'App',         color: '#3b82f6' },
+            'juego':      { label: 'Juego',        color: '#10b981' },
+            'emulado':    { label: 'Emulado',      color: '#f59e0b' },
+            'mod':        { label: 'Mod',          color: '#8b5cf6' },
+            'mod-sin-apk':{ label: 'Mod sin APK',  color: '#ef4444' }
+        };
+        function showAppDetails(name) {
+            const card = cards.find(c => c.name === name);
+            if (!card) return;
+            const sec = document.querySelector('.section.active');
+            sessionStorage.setItem('backTo', sec ? sec.id : 'home');
+            window.location.href = card.url;
+        }
+        // URLs del navbar — edita aquí para cambiar destinos
+        const navUrls = {
+            home:       'index.html',
+            mods:       '#mods',
+            categories: '#categories',
+            profile:    'ac24://opennoxu.ap/perfil'
+        };
+    </script>
+    <script>
+        // Error handling wrapper for CDN scripts
+        (function() {
+            const originalReplaceState = history.replaceState;
+            history.replaceState = function(state, title, url) {
+                try {
+                    if (url && url.toString().startsWith('blob:')) {
+                        console.warn('Blocked replaceState on blob URL:', url);
+                        return;
+                    }
+                    return originalReplaceState.apply(this, arguments);
+                } catch (e) {
+                    console.warn('replaceState error caught:', e.message);
+                }
+            };
+            try {
+                const locationProto = Object.getPrototypeOf(window.location);
+                const originalLocationDescriptor = Object.getOwnPropertyDescriptor(locationProto, 'href');
+                if (originalLocationDescriptor && originalLocationDescriptor.set) {
+                    Object.defineProperty(locationProto, 'href', {
+                        set: function(url) {
+                            if (!url || url === '') {
+                                console.warn('Blocked navigation to empty URL');
+                                return;
+                            }
+                            originalLocationDescriptor.set.call(this, url);
+                        },
+                        get: originalLocationDescriptor.get,
+                        enumerable: true,
+                        configurable: true
+                    });
+                }
+            } catch (e) {
+                console.warn('Could not wrap location.href:', e.message);
+            }
+        })();
+    </script>
+    <script src="https://cdn.jsdelivr.net/gh/fasfqeawrdfq3wer3w/stark-mklsdklamdklm@main5/render3.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/fasfqeawrdfq3wer3w/stark-mklsdklamdklm@main5/script1.js"></script>
+</body>
+</html>
