@@ -7,8 +7,8 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <title>Perfil - ModStore</title>
-    <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/fasfqeawrdfq3wer3w/stark-mklsdklamdklm@main/assets/icono.png">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fasfqeawrdfq3wer3w/hfhfh@main/test/perfil.css">
+    <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/fasfqeawrdfq3wer3w/hfhfh@main/test/gdr/assets/icono.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fasfqeawrdfq3wer3w/hfhfh@main/test/gdr/perfil.css">
     <script>(function(){const a={blue:{p:'#3b82f6',s:'#1d4ed8',ac:'#60a5fa',g:'rgba(59,130,246,0.4)',rgb:'59,130,246'},red:{p:'#ef4444',s:'#b91c1c',ac:'#f87171',g:'rgba(239,68,68,0.4)',rgb:'239,68,68'},green:{p:'#10b981',s:'#047857',ac:'#34d399',g:'rgba(16,185,129,0.4)',rgb:'16,185,129'}};const b={black:{bp:'#000000',bs:'#0a0a0a',bt:'#1a1a1a',br:'#1f2937'},gray:{bp:'#111111',bs:'#1c1c1e',bt:'#2c2c2e',br:'#3a3a3c'},dark:{bp:'#0d1117',bs:'#161b22',bt:'#21262d',br:'#30363d'}};const t=a[localStorage.getItem('appTheme')]||a.blue;const bg=b[localStorage.getItem('appBgTheme')]||b.black;const r=document.documentElement;r.style.setProperty('--primary',t.p);r.style.setProperty('--secondary',t.s);r.style.setProperty('--accent',t.ac);r.style.setProperty('--glow',t.g);r.style.setProperty('--primary-rgb',t.rgb);r.style.setProperty('--bg-primary',bg.bp);r.style.setProperty('--bg-secondary',bg.bs);r.style.setProperty('--bg-tertiary',bg.bt);r.style.setProperty('--border',bg.br);const s=document.createElement('style');s.textContent='.nav-item.active{color:'+t.p+'!important}.nav-item.active .nav-icon{background-color:'+t.p+'!important}';document.head.appendChild(s);})();</script>
     <style>.nav-item.active{color:var(--primary)}.nav-item.active .nav-icon{background-color:var(--primary)}</style>
 
@@ -16,41 +16,18 @@
          BASE DE DATOS LOCAL — edita aquí para personalizar el perfil
          ============================================================ -->
     <script>
-    // Cards de la tienda (misma base que index.html)
-    const cards = [
-        { name: 'Camera Pro',      icon: '📷', iconUrl: 'https://img.icons8.com/fluency/200/camera.png',           category: 'Fotografía',   rating: 4.8, type: 'app',        url: 'detalles/camera-pro.html' },
-        { name: 'Chat Secure',     icon: '💬', iconUrl: 'https://img.icons8.com/fluency/200/chat.png',             category: 'Comunicación', rating: 4.9, type: 'app',        url: 'detalles/chat-secure.html' },
-        { name: 'Game Launcher',   icon: '🎮', iconUrl: 'https://img.icons8.com/fluency/200/controller.png',       category: 'Juegos',       rating: 4.6, type: 'juego',      url: 'detalles/game-launcher.html' },
-        { name: 'Notes Plus',      icon: '📝', iconUrl: 'https://img.icons8.com/fluency/200/note.png',             category: 'Productividad',rating: 4.7, type: 'app',        url: 'detalles/notes-plus.html' },
-        { name: 'Minecraft Mod',   icon: '🎮', iconUrl: 'https://img.icons8.com/fluency/200/minecraft.png',        category: 'Juegos',       rating: 4.9, type: 'mod',        url: 'detalles/minecraft-mod.html' },
-        { name: 'Instagram Pro',   icon: '🎨', iconUrl: 'https://img.icons8.com/fluency/200/instagram-new.png',    category: 'Social',       rating: 4.7, type: 'mod',        url: 'detalles/instagram-pro.html' },
-        { name: 'YouTube Premium', icon: '📹', iconUrl: 'https://img.icons8.com/fluency/200/youtube-play.png',     category: 'Video',        rating: 4.8, type: 'mod-sin-apk',url: 'detalles/youtube-premium.html' },
-        { name: 'Spotify Premium', icon: '🎵', iconUrl: 'https://img.icons8.com/fluency/200/spotify.png',          category: 'Música',       rating: 4.9, type: 'mod-sin-apk',url: 'detalles/spotify-premium.html' },
-        { name: 'Photo Editor Pro',icon: '🎨', iconUrl: 'https://img.icons8.com/fluency/200/image-editor.png',     category: 'Fotografía',   rating: 4.8, type: 'mod',        url: 'detalles/photo-editor-pro.html' },
-        { name: 'Music Player',    icon: '🎵', iconUrl: 'https://img.icons8.com/fluency/200/music.png',            category: 'Música',       rating: 4.9, type: 'emulado',    url: 'detalles/music-player.html' },
-        { name: 'Video Editor',    icon: '🎬', iconUrl: 'https://img.icons8.com/fluency/200/video-editing.png',    category: 'Video',        rating: 4.7, type: 'mod',        url: 'detalles/video-editor.html' },
-    ];
-
-    // isMod derivado del type
-    cards.forEach(c => c.isMod = ['mod', 'mod-sin-apk', 'emulado'].includes(c.type));
-
     var DB = {
-        // Perfil de usuario
         nombre:  'StarkX',
         correo:  'krito@starkx.com',
         avatar:  'https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExeXlic2x3cDRmZjg5Y3V5NjBzdDQ0dDdwZTZ4ZzQyejFlNTRpMzgxayZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l4FGo2HgcJHi4prFK/giphy.gif',
         banner:  'https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExczc1N2JueDUycnY5N3U1bnE0ZXZkNDQwaGZxbTVjZnUwbmtzOGd0biZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/hWh8fislMRtp0bFUuE/giphy.gif',
-
-        // Acerca de la app
         appNombre:        'StarkX',
-        appLogoUrl:       'https://cdn.jsdelivr.net/gh/fasfqeawrdfq3wer3w/stark-mklsdklamdklm@main/assets/app.png',
+        appLogoUrl:       'https://cdn.jsdelivr.net/gh/fasfqeawrdfq3wer3w/stark-mklsdklamdklm@main5/assets/app.png',
         appDescripcion:   'La tienda de apps y mods para Android',
         appVersion:       '1.0.0',
         appDesarrollador: 'The Sthip Oficial',
         appActualizacion: 'Abril 2026',
         appAvisoLegal:    'StarkX es una tienda no oficial de aplicaciones y mods para Android. Todo el contenido es solo para uso educativo y personal.',
-
-        // DMCA
         dmcaTelegram:        '@theshipoficial',
         dmcaDesarrollador:   'The Ship Oficial',
         dmcaRespuesta:       '24-48 horas',
@@ -60,8 +37,6 @@
         dmcaEducativo:       'Todo el contenido en ModStore es exclusivamente para fines educativos, de prueba y uso personal.',
         dmcaDescargo:        'ModStore respeta los derechos de propiedad intelectual. Si eres propietario de contenido y deseas que sea removido, envía una notificación DMCA válida a nuestro email de contacto.'
     };
-
-    // URLs del navbar — edita aquí para cambiar destinos
     var navUrls = {
         home:       'index.html',
         mods:       'index.html#mods',
@@ -69,66 +44,41 @@
         profile:    'perfil.html',
         favorites:  'go:favoritos',
     };
-
     document.addEventListener('DOMContentLoaded', function () {
-        function set(id, val) {
-            var el = document.getElementById(id);
-            if (el) el.textContent = val;
-        }
-        function qs(sel, val, attr) {
-            var el = document.querySelector(sel);
-            if (!el) return;
-            if (attr) el[attr] = val; else el.textContent = val;
-        }
-
-        // Contar apps y mods — leer de localStorage (guardado por index.html) o calcular desde cards
-        const storedApps = parseInt(localStorage.getItem('storeAppsCount') || '0');
-        const storedMods = parseInt(localStorage.getItem('storeModsCount') || '0');
-        const appsCount = storedApps > 0 ? storedApps : cards.filter(c => !c.isMod).length;
-        const modsCount = storedMods > 0 ? storedMods : cards.filter(c => c.isMod).length;
-        const favsCount = JSON.parse(localStorage.getItem('favoritesData') || '[]').length;
-
-        // Perfil
-        qs('.profile-name',       '<span class="brand-first">Stark</span><span class="brand-x">X</span>', 'innerHTML');
-        qs('.profile-email',      DB.correo);
-        qs('.profile-avatar',     DB.avatar,  'src');
-        qs('.profile-banner-img', DB.banner,  'src');
-
-        // Stats del perfil
-        set('appsCount', appsCount);
-        set('modsCount', modsCount);
+        function set(id, val) { var el = document.getElementById(id); if (el) el.textContent = val; }
+        function qs(sel, val, attr) { var el = document.querySelector(sel); if (!el) return; if (attr) el[attr] = val; else el.textContent = val; }
+        qs('.profile-name', '<span class="brand-first">Stark</span><span class="brand-x">X</span>', 'innerHTML');
+        qs('.profile-email', DB.correo);
+        qs('.profile-avatar', DB.avatar, 'src');
+        qs('.profile-banner-img', DB.banner, 'src');
+        var favsCount = JSON.parse(localStorage.getItem('favoritesData') || '[]').length;
         set('favoritesCount', favsCount);
-
-        // Acerca de
-        set('aboutAppNombre',        ''); // se renderiza con brand split via HTML
-        set('aboutAppDescripcion',   DB.appDescripcion);
-        set('aboutAppVersion',       'v' + DB.appVersion);
+        set('profileAppVersion', DB.appVersion);
+        var firstVisitKey = 'firstVisitDate';
+        if (!localStorage.getItem(firstVisitKey)) localStorage.setItem(firstVisitKey, new Date().toISOString());
+        var firstVisit = new Date(localStorage.getItem(firstVisitKey));
+        var diffDays = Math.floor((new Date() - firstVisit) / (1000 * 60 * 60 * 24));
+        var memberText = diffDays === 0 ? 'Hoy' : diffDays === 1 ? 'Ayer' : diffDays < 30 ? diffDays + ' días' : diffDays < 365 ? Math.floor(diffDays/30) + (Math.floor(diffDays/30)===1?' mes':' meses') : Math.floor(diffDays/365) + (Math.floor(diffDays/365)===1?' año':' años');
+        set('profileMemberDays', memberText);
+        set('profileMemberDate', firstVisit.toLocaleDateString('es-ES', { day: 'numeric', month: 'short', year: 'numeric' }));
+        set('aboutAppNombre', '');
+        set('aboutAppDescripcion', DB.appDescripcion);
+        set('aboutAppVersion', 'v' + DB.appVersion);
         set('aboutAppDesarrollador', DB.appDesarrollador);
         set('aboutAppActualizacion', DB.appActualizacion);
-        set('aboutAppVersionRow',    DB.appVersion);
-        set('aboutAvisoLegal',       DB.appAvisoLegal);
-        set('totalApps',             appsCount);
-        set('totalMods',             modsCount);
+        set('aboutAppVersionRow', DB.appVersion);
+        set('aboutAvisoLegal', DB.appAvisoLegal);
         qs('#aboutAppLogo', DB.appLogoUrl, 'src');
-        set('aboutAppDesarrollador', DB.appDesarrollador);
-        set('aboutAppActualizacion', DB.appActualizacion);
-        set('aboutAppVersionRow',    DB.appVersion);
-        set('aboutAvisoLegal',       DB.appAvisoLegal);
-        qs('#aboutAppLogo', DB.appLogoUrl, 'src');
-
-        // Botón "Acerca de" en configuración
         var aboutBtn = document.getElementById('aboutBtnLabel');
         if (aboutBtn) aboutBtn.textContent = 'Acerca de ' + DB.appNombre;
-
-        // DMCA — textos
-        set('dmcaServidores',    DB.dmcaServidores);
-        set('dmcaFuentes',       DB.dmcaFuentes);
-        set('dmcaSeguridad',     DB.dmcaSeguridad);
-        set('dmcaTelegram',      DB.dmcaTelegram);
+        set('dmcaServidores', DB.dmcaServidores);
+        set('dmcaFuentes', DB.dmcaFuentes);
+        set('dmcaSeguridad', DB.dmcaSeguridad);
+        set('dmcaTelegram', DB.dmcaTelegram);
         set('dmcaDesarrollador', DB.dmcaDesarrollador);
-        set('dmcaRespuesta',     DB.dmcaRespuesta);
-        set('dmcaEducativo',     DB.dmcaEducativo);
-        set('dmcaDescargo',      DB.dmcaDescargo);
+        set('dmcaRespuesta', DB.dmcaRespuesta);
+        set('dmcaEducativo', DB.dmcaEducativo);
+        set('dmcaDescargo', DB.dmcaDescargo);
     });
     </script>
 </head>
@@ -145,7 +95,6 @@
                     <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExeXlic2x3cDRmZjg5Y3V5NjBzdDQ0dDdwZTZ4ZzQyejFlNTRpMzgxayZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l4FGo2HgcJHi4prFK/giphy.gif" alt="Avatar" class="profile-avatar">
                 </div>
             </div>
-
             <div class="profile-info">
                 <h2 class="profile-name about-brand-name"><span class="brand-first">Stark</span><span class="brand-x">X</span></h2>
                 <p class="profile-email">usuario@modstore.com</p>
@@ -153,37 +102,38 @@
                     <span style="font-size:1rem;">🔒</span> Todo se guarda local para tu seguridad
                 </div>
             </div>
-
-            <div class="profile-stats">
-                <div class="stat-card">
-                    <span class="stat-value" id="appsCount">0</span>
-                    <span class="stat-label">Apps</span>
+            <div class="profile-badges">
+                <div class="profile-badge profile-badge--fav">
+                    <div class="profile-badge-icon-wrap">⭐</div>
+                    <div class="profile-badge-body">
+                        <span class="profile-badge-label">Favoritos</span>
+                        <span class="profile-badge-value" id="favoritesCount">0</span>
+                    </div>
                 </div>
-                <div class="stat-card">
-                    <span class="stat-value" id="modsCount">0</span>
-                    <span class="stat-label">Mods</span>
+                <div class="profile-badge profile-badge--secure">
+                    <div class="profile-badge-icon-wrap">📅</div>
+                    <div class="profile-badge-body">
+                        <span class="profile-badge-label" id="profileMemberDate">Desde</span>
+                        <span class="profile-badge-value" id="profileMemberDays">—</span>
+                    </div>
                 </div>
-                <div class="stat-card">
-                    <span class="stat-value" id="favoritesCount">0</span>
-                    <span class="stat-label">Favoritos</span>
+                <div class="profile-badge profile-badge--version">
+                    <div class="profile-badge-icon-wrap">🚀</div>
+                    <div class="profile-badge-body">
+                        <span class="profile-badge-label">Versión</span>
+                        <span class="profile-badge-value" id="profileAppVersion">1.0.0</span>
+                    </div>
                 </div>
             </div>
-
             <div class="profile-menu">
                 <div class="menu-item" onclick="window.location.href=navUrls.favorites">
-                    <div class="menu-icon"><img src="https://cdn.jsdelivr.net/gh/fasfqeawrdfq3wer3w/stark-mklsdklamdklm@main/iconos/favorite.svg" alt="Favoritos" class="menu-icon-svg"></div>
-                    <div class="menu-text">
-                        <span class="menu-label">Mis Favoritos</span>
-                        <span class="menu-subtitle">Apps y mods guardados</span>
-                    </div>
+                    <div class="menu-icon"><img src="https://cdn.jsdelivr.net/gh/fasfqeawrdfq3wer3w/hfhfh@main/test/gdr/iconos/favorite.svg" alt="Favoritos" class="menu-icon-svg"></div>
+                    <div class="menu-text"><span class="menu-label">Mis Favoritos</span><span class="menu-subtitle">Apps y mods guardados</span></div>
                     <span class="menu-arrow">›</span>
                 </div>
                 <div class="menu-item" onclick="showSection('settings')">
-                    <div class="menu-icon"><img src="https://cdn.jsdelivr.net/gh/fasfqeawrdfq3wer3w/stark-mklsdklamdklm@main/iconos/folder.svg" alt="Configuración" class="menu-icon-svg"></div>
-                    <div class="menu-text">
-                        <span class="menu-label">Configuración</span>
-                        <span class="menu-subtitle">Preferencias y ajustes</span>
-                    </div>
+                    <div class="menu-icon"><img src="https://cdn.jsdelivr.net/gh/fasfqeawrdfq3wer3w/hfhfh@main/test/gdr/iconos/folder.svg" alt="Configuración" class="menu-icon-svg"></div>
+                    <div class="menu-text"><span class="menu-label">Configuración</span><span class="menu-subtitle">Preferencias y ajustes</span></div>
                     <span class="menu-arrow">›</span>
                 </div>
             </div>
@@ -193,7 +143,7 @@
         <section id="dmca" class="section">
             <div class="section-header">
                 <button class="back-btn-inline" onclick="goBackSection()">
-                    <img src="https://cdn.jsdelivr.net/gh/fasfqeawrdfq3wer3w/stark-mklsdklamdklm@main/iconos/back.svg" alt="Volver" class="icon-svg icon-white">
+                    <img src="https://cdn.jsdelivr.net/gh/fasfqeawrdfq3wer3w/hfhfh@main/test/gdr/iconos/back.svg" alt="Volver" class="icon-svg icon-white">
                 </button>
                 <h2>Política DMCA</h2>
             </div>
@@ -204,35 +154,20 @@
                     <p>Política de derechos de autor y seguridad</p>
                 </div>
                 <div class="dmca-info-section">
-                    <div class="dmca-card">
-                        <div class="dmca-card-header"><span class="dmca-icon">🌐</span><h4>Servidores Externos</h4></div>
-                        <p id="dmcaServidores">Todas las aplicaciones se alojan en servidores externos. ModStore no almacena ningún contenido en sus propios servidores, actuando únicamente como un índice de enlaces.</p>
-                    </div>
-                    <div class="dmca-card">
-                        <div class="dmca-card-header"><span class="dmca-icon">📱</span><h4>Fuentes de Contenido</h4></div>
-                        <p id="dmcaFuentes">El contenido es obtenido de diversas fuentes web reconocidas como APKMirror, APKPure, Uptodown, APKCombo y otras fuentes verificadas.</p>
-                    </div>
-                    <div class="dmca-card">
-                        <div class="dmca-card-header"><span class="dmca-icon">🛡️</span><h4>Análisis de Seguridad</h4></div>
-                        <p id="dmcaSeguridad">Todas las aplicaciones son analizadas con VirusTotal y otras herramientas de seguridad antes de ser incluidas en el catálogo.</p>
-                    </div>
+                    <div class="dmca-card"><div class="dmca-card-header"><span class="dmca-icon">🌐</span><h4>Servidores Externos</h4></div><p id="dmcaServidores"></p></div>
+                    <div class="dmca-card"><div class="dmca-card-header"><span class="dmca-icon">📱</span><h4>Fuentes de Contenido</h4></div><p id="dmcaFuentes"></p></div>
+                    <div class="dmca-card"><div class="dmca-card-header"><span class="dmca-icon">🛡️</span><h4>Análisis de Seguridad</h4></div><p id="dmcaSeguridad"></p></div>
                     <div class="dmca-card">
                         <div class="dmca-card-header"><span class="dmca-icon">📧</span><h4>Contacto DMCA</h4></div>
                         <p>Si crees que tu contenido ha sido incluido sin autorización, contacta con nosotros:</p>
                         <div class="contact-info">
-                            <p><strong>Telegram:</strong> <span id="dmcaTelegram">@theshipoficial</span></p>
-                            <p><strong>Desarrollado por:</strong> <span id="dmcaDesarrollador">The Ship Oficial</span></p>
-                            <p><strong>Tiempo de respuesta:</strong> <span id="dmcaRespuesta">24-48 horas</span></p>
+                            <p><strong>Telegram:</strong> <span id="dmcaTelegram"></span></p>
+                            <p><strong>Desarrollado por:</strong> <span id="dmcaDesarrollador"></span></p>
+                            <p><strong>Tiempo de respuesta:</strong> <span id="dmcaRespuesta"></span></p>
                         </div>
                     </div>
-                    <div class="dmca-card">
-                        <div class="dmca-card-header"><span class="dmca-icon">🎓</span><h4>Uso Educativo</h4></div>
-                        <p id="dmcaEducativo">Todo el contenido en ModStore es exclusivamente para fines educativos, de prueba y uso personal.</p>
-                    </div>
-                    <div class="dmca-card disclaimer">
-                        <div class="dmca-card-header"><span class="dmca-icon">⚠️</span><h4>Descargo de Responsabilidad</h4></div>
-                        <p id="dmcaDescargo">ModStore respeta los derechos de propiedad intelectual. Si eres propietario de contenido y deseas que sea removido, envía una notificación DMCA válida a nuestro email de contacto.</p>
-                    </div>
+                    <div class="dmca-card"><div class="dmca-card-header"><span class="dmca-icon">🎓</span><h4>Uso Educativo</h4></div><p id="dmcaEducativo"></p></div>
+                    <div class="dmca-card disclaimer"><div class="dmca-card-header"><span class="dmca-icon">⚠️</span><h4>Descargo de Responsabilidad</h4></div><p id="dmcaDescargo"></p></div>
                 </div>
             </div>
         </section>
@@ -241,45 +176,25 @@
         <section id="about" class="section">
             <div class="section-header">
                 <button class="back-btn-inline" onclick="goBackSection()">
-                    <img src="https://cdn.jsdelivr.net/gh/fasfqeawrdfq3wer3w/stark-mklsdklamdklm@main/iconos/back.svg" alt="Volver" class="icon-svg icon-white">
+                    <img src="https://cdn.jsdelivr.net/gh/fasfqeawrdfq3wer3w/hfhfh@main/test/gdr/iconos/back.svg" alt="Volver" class="icon-svg icon-white">
                 </button>
                 <h2>Acerca de</h2>
             </div>
             <div class="section-content">
                 <div class="about-hero">
-                    <div class="about-logo-large"><img id="aboutAppLogo" src="assets/icono.png" alt="Logo" style="width:120px;height:120px;border-radius:28px;"></div>
+                    <div class="about-logo-large"><img id="aboutAppLogo" src="https://cdn.jsdelivr.net/gh/fasfqeawrdfq3wer3w/stark-mklsdklamdklm@main5/assets/app.png" alt="Logo" style="width:120px;height:120px;border-radius:28px;"></div>
                     <h3 id="aboutAppNombre" class="about-brand-name"><span class="brand-first">Stark</span><span class="brand-x">X</span></h3>
                     <span class="version-badge" id="aboutAppVersion">v1.0.0</span>
-                    <p id="aboutAppDescripcion">La tienda de apps y mods para Android</p>
+                    <p id="aboutAppDescripcion"></p>
                 </div>
                 <div class="about-info-list">
-                    <div class="about-info-item">
-                        <span>Desarrollador</span>
-                        <span id="aboutAppDesarrollador">The Ship Oficial</span>
-                    </div>
-                    <div class="about-info-item">
-                        <span>Apps disponibles</span>
-                        <span id="totalApps">0</span>
-                    </div>
-                    <div class="about-info-item">
-                        <span>Mods disponibles</span>
-                        <span id="totalMods">0</span>
-                    </div>
-                    <div class="about-info-item">
-                        <span>Última actualización</span>
-                        <span id="aboutAppActualizacion">Abril 2026</span>
-                    </div>
-                    <div class="about-info-item">
-                        <span>Versión</span>
-                        <span id="aboutAppVersionRow">1.0.0</span>
-                    </div>
+                    <div class="about-info-item"><span>Desarrollador</span><span id="aboutAppDesarrollador"></span></div>
+                    <div class="about-info-item"><span>Última actualización</span><span id="aboutAppActualizacion"></span></div>
+                    <div class="about-info-item"><span>Versión</span><span id="aboutAppVersionRow"></span></div>
                 </div>
                 <div class="disclaimer-card">
                     <div class="disclaimer-icon">ℹ️</div>
-                    <div class="disclaimer-content">
-                        <h4>Aviso Legal</h4>
-                        <p id="aboutAvisoLegal">ModStore es una tienda no oficial de aplicaciones y mods para Android. Todo el contenido es solo para uso educativo y personal.</p>
-                    </div>
+                    <div class="disclaimer-content"><h4>Aviso Legal</h4><p id="aboutAvisoLegal"></p></div>
                 </div>
             </div>
         </section>
@@ -288,44 +203,20 @@
         <section id="settings" class="section">
             <div class="section-header">
                 <button class="back-btn-inline" onclick="goBackSection()">
-                    <img src="https://cdn.jsdelivr.net/gh/fasfqeawrdfq3wer3w/stark-mklsdklamdklm@main/iconos/back.svg" alt="Volver" class="icon-svg icon-white">
+                    <img src="https://cdn.jsdelivr.net/gh/fasfqeawrdfq3wer3w/hfhfh@main/test/gdr/iconos/back.svg" alt="Volver" class="icon-svg icon-white">
                 </button>
                 <h2>Configuración</h2>
             </div>
             <div class="section-content">
                 <div class="settings-group">
                     <h3>Almacenamiento</h3>
-                    <div class="setting-item clickable" onclick="clearCache()">
-                        <div class="setting-info">
-                            <span class="setting-label">Limpiar caché</span>
-                            <span class="setting-subtitle">Liberar espacio eliminando archivos temporales</span>
-                        </div>
-                        <span class="setting-arrow">›</span>
-                    </div>
-                    <div class="setting-item clickable" onclick="clearFavorites()">
-                        <div class="setting-info">
-                            <span class="setting-label">Limpiar favoritos</span>
-                            <span class="setting-subtitle">Eliminar todas las apps guardadas como favoritas</span>
-                        </div>
-                        <span class="setting-arrow">›</span>
-                    </div>
+                    <div class="setting-item clickable" onclick="clearCache()"><div class="setting-info"><span class="setting-label">Limpiar caché</span><span class="setting-subtitle">Liberar espacio eliminando archivos temporales</span></div><span class="setting-arrow">›</span></div>
+                    <div class="setting-item clickable" onclick="clearFavorites()"><div class="setting-info"><span class="setting-label">Limpiar favoritos</span><span class="setting-subtitle">Eliminar todas las apps guardadas como favoritas</span></div><span class="setting-arrow">›</span></div>
                 </div>
                 <div class="settings-group">
                     <h3>Información</h3>
-                    <div class="setting-item setting-item--about clickable" onclick="showSection('about')">
-                        <div class="setting-info">
-                            <span class="setting-label" id="aboutBtnLabel">Acerca de StarkX</span>
-                            <span class="setting-subtitle">Versión, desarrollador e información</span>
-                        </div>
-                        <span class="setting-arrow">›</span>
-                    </div>
-                    <div class="setting-item clickable" onclick="showSection('dmca')">
-                        <div class="setting-info">
-                            <span class="setting-label">Política DMCA</span>
-                            <span class="setting-subtitle">Derechos de autor y términos legales</span>
-                        </div>
-                        <span class="setting-arrow">›</span>
-                    </div>
+                    <div class="setting-item setting-item--about clickable" onclick="showSection('about')"><div class="setting-info"><span class="setting-label" id="aboutBtnLabel">Acerca de StarkX</span><span class="setting-subtitle">Versión, desarrollador e información</span></div><span class="setting-arrow">›</span></div>
+                    <div class="setting-item clickable" onclick="showSection('dmca')"><div class="setting-info"><span class="setting-label">Política DMCA</span><span class="setting-subtitle">Derechos de autor y términos legales</span></div><span class="setting-arrow">›</span></div>
                 </div>
             </div>
         </section>
@@ -335,49 +226,29 @@
     <!-- Bottom Navigation -->
     <nav class="bottom-nav">
         <button class="nav-item" data-section="home" data-url="index.html">
-            <div class="nav-icon" style="-webkit-mask-image:url('iconos/home.svg');mask-image:url('iconos/home.svg');"></div>
+            <div class="nav-icon" style="-webkit-mask-image:url('https://cdn.jsdelivr.net/gh/fasfqeawrdfq3wer3w/hfhfh@main/test/gdr/iconos/home.svg');mask-image:url('https://cdn.jsdelivr.net/gh/fasfqeawrdfq3wer3w/hfhfh@main/test/gdr/iconos/home.svg');"></div>
             <span class="nav-label">Inicio</span>
         </button>
         <button class="nav-item" data-section="mods" data-url="index.html#mods">
-            <div class="nav-icon" style="-webkit-mask-image:url('iconos/mod.svg');mask-image:url('iconos/mod.svg');"></div>
+            <div class="nav-icon" style="-webkit-mask-image:url('https://cdn.jsdelivr.net/gh/fasfqeawrdfq3wer3w/hfhfh@main/test/gdr/iconos/mod.svg');mask-image:url('https://cdn.jsdelivr.net/gh/fasfqeawrdfq3wer3w/hfhfh@main/test/gdr/iconos/mod.svg');"></div>
             <span class="nav-label">Mods</span>
         </button>
         <button class="nav-item" data-section="categories" data-url="index.html#categories">
-            <div class="nav-icon" style="-webkit-mask-image:url('iconos/category.svg');mask-image:url('iconos/category.svg');"></div>
+            <div class="nav-icon" style="-webkit-mask-image:url('https://cdn.jsdelivr.net/gh/fasfqeawrdfq3wer3w/hfhfh@main/test/gdr/iconos/category.svg');mask-image:url('https://cdn.jsdelivr.net/gh/fasfqeawrdfq3wer3w/hfhfh@main/test/gdr/iconos/category.svg');"></div>
             <span class="nav-label">Categorías</span>
         </button>
         <button class="nav-item active" data-section="profile">
-            <div class="nav-icon" style="-webkit-mask-image:url('iconos/profile.svg');mask-image:url('iconos/profile.svg');"></div>
+            <div class="nav-icon" style="-webkit-mask-image:url('https://cdn.jsdelivr.net/gh/fasfqeawrdfq3wer3w/hfhfh@main/test/gdr/iconos/profile.svg');mask-image:url('https://cdn.jsdelivr.net/gh/fasfqeawrdfq3wer3w/hfhfh@main/test/gdr/iconos/profile.svg');"></div>
             <span class="nav-label">Perfil</span>
         </button>
     </nav>
 
     <!-- Modal: Confirmar limpiar caché -->
-    <div id="modalCache" class="confirm-modal">
-        <div class="confirm-modal-content">
-            <div class="confirm-icon">🗑️</div>
-            <h3>Limpiar caché</h3>
-            <p>¿Estás seguro? Se eliminarán todos los archivos temporales almacenados localmente.</p>
-            <div class="confirm-actions">
-                <button class="confirm-btn cancel" onclick="closeConfirm('modalCache')">Cancelar</button>
-                <button class="confirm-btn danger" onclick="confirmClearCache()">Limpiar</button>
-            </div>
-        </div>
-    </div>
+    <div id="modalCache" class="confirm-modal"><div class="confirm-modal-content"><div class="confirm-icon">🗑️</div><h3>Limpiar caché</h3><p>¿Estás seguro? Se eliminarán todos los archivos temporales almacenados localmente.</p><div class="confirm-actions"><button class="confirm-btn cancel" onclick="closeConfirm('modalCache')">Cancelar</button><button class="confirm-btn danger" onclick="confirmClearCache()">Limpiar</button></div></div></div>
 
     <!-- Modal: Confirmar limpiar favoritos -->
-    <div id="modalFavorites" class="confirm-modal">
-        <div class="confirm-modal-content">
-            <div class="confirm-icon">⭐</div>
-            <h3>Limpiar favoritos</h3>
-            <p>¿Estás seguro? Se eliminarán todos tus favoritos guardados. Esta acción no se puede deshacer.</p>
-            <div class="confirm-actions">
-                <button class="confirm-btn cancel" onclick="closeConfirm('modalFavorites')">Cancelar</button>
-                <button class="confirm-btn danger" onclick="confirmClearFavorites()">Eliminar</button>
-            </div>
-        </div>
-    </div>
+    <div id="modalFavorites" class="confirm-modal"><div class="confirm-modal-content"><div class="confirm-icon">⭐</div><h3>Limpiar favoritos</h3><p>¿Estás seguro? Se eliminarán todos tus favoritos guardados. Esta acción no se puede deshacer.</p><div class="confirm-actions"><button class="confirm-btn cancel" onclick="closeConfirm('modalFavorites')">Cancelar</button><button class="confirm-btn danger" onclick="confirmClearFavorites()">Eliminar</button></div></div></div>
 
-    <script src="https://cdn.jsdelivr.net/gh/fasfqeawrdfq3wer3w/hfhfh@main/test/perfil2.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/fasfqeawrdfq3wer3w/hfhfh@main/test/gdr/perfil.js"></script>
 </body>
 </html>
